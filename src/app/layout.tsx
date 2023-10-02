@@ -3,6 +3,7 @@ import './global.css'
 import type { Metadata } from 'next'
 import { Lexend } from 'next/font/google'
 import { ThemeProvider } from '@/components/ui/theme-provider'
+import Navbar from '@/components/Navbar'
 
 const lexend = Lexend({ subsets: ['latin'] })
 
@@ -19,13 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(
-        lexend.className, 'antialiased min-h-screen pt-16 bg-white dark:bg-gray-900 dark:text-white'
+        lexend.className, 'antialiased min-h-screen pt-16 bg-slate-200 dark:bg-gray-900 dark:text-white'
       )}>
         <ThemeProvider
         attribute="class"
         defaultTheme="system"
         enableSystem
         disableTransitionOnChange>
+        <Navbar />  
         {children}
         </ThemeProvider>
       </body>
